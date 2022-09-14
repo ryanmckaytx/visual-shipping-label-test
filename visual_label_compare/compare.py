@@ -1,3 +1,4 @@
+# based heavily on https://pyimagesearch.com/2014/09/15/python-compare-two-images/
 # import the necessary packages
 from skimage.metrics import structural_similarity as ssim
 import matplotlib.pyplot as plt
