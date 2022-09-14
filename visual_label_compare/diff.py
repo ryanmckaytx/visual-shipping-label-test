@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-def diff_images(imageA, imageB, title):
+def diff_images(imageA, imageATitle, imageB, imageBTitle):
 	grayA = cv2.cvtColor(imageA, cv2.COLOR_BGR2GRAY)
 	grayB = cv2.cvtColor(imageB, cv2.COLOR_BGR2GRAY)
 
@@ -31,7 +31,7 @@ def diff_images(imageA, imageB, title):
 		cv2.rectangle(imageA, (x, y), (x + w, y + h), (0, 255, 0), 2)
 		cv2.rectangle(imageB, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-	display_diff(imageA, imageB, diff, thresh, ssim, mse, title)
+	display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, mse)
 	return ssim
 
 
@@ -47,29 +47,33 @@ def compare_mse(imageA, imageB):
 	return err
 
 
-def display_diff(imageA, imageB, diff, thresh, ssim, mse, title):
+def display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, mse):
 	# setup the figure
 	fig = plt.figure(figsize=(10, 4), dpi=300)
-	plt.suptitle(title)
+	plt.suptitle(f"{imageATitle} vs {imageBTitle} Diff Overlay")
 	plt.title(f"MSE: {mse:.2f}, SSIM: {ssim:.2f}")
 
 	# show first image
-	ax = fig.add_subplot(2, 2, 1)
+	ax1 = fig.add_subplot(2, 2, 1)
+	ax1.title.set_text(imageATitle)
 	plt.imshow(imageA, cmap=plt.cm.gray)
 	plt.axis("off")
 
 	# show the second image
-	ax = fig.add_subplot(2, 2, 2)
+	ax2 = fig.add_subplot(2, 2, 2)
+	ax2.title.set_text(imageBTitle)
 	plt.imshow(imageB, cmap=plt.cm.gray)
 	plt.axis("off")
 
 	# show the diff
-	ax = fig.add_subplot(2, 2, 3)
+	ax3 = fig.add_subplot(2, 2, 3)
+	ax3.title.set_text("Diff")
 	plt.imshow(diff, cmap=plt.cm.gray)
 	plt.axis("off")
 
 	# show the thresh
-	ax = fig.add_subplot(2, 2, 4)
+	ax4 = fig.add_subplot(2, 2, 4)
+	ax4.title.set_text("Threshold")
 	plt.imshow(thresh, cmap=plt.cm.gray)
 	plt.axis("off")
 	# show the images
