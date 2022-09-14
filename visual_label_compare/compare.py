@@ -23,8 +23,9 @@ def compare_images(imageA, imageB, title):
     m = mse(imageA, imageB)
     s = ssim(imageA, imageB)
     # setup the figure
-    fig = plt.figure(title)
-    plt.suptitle("MSE: %.2f, SSIM: %.2f" % (m, s))
+    fig = plt.figure(figsize=(10, 4), dpi=300)
+    plt.suptitle(title)
+    plt.title(f"MSE: {m:.2f}, SSIM: {s:.2f}")
     # show first image
     ax = fig.add_subplot(1, 2, 1)
     plt.imshow(imageA, cmap=plt.cm.gray)
