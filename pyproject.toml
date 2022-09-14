@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "visual-label-compare"
+version = "0.1.0"
+description = ""
+authors = ["Ryan McKay <ryan.michael.mckay@gmail.com>"]
+readme = "README.md"
+packages = [{include = "visual_label_compare"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+opencv-python = "^4.6.0.66"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
