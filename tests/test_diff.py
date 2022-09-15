@@ -1,6 +1,7 @@
 import cv2
 
-from visual_label_compare.diff import diff_images, apply_mask
+from visual_label_compare.diff import diff_images
+from visual_label_compare.image_util import apply_mask
 
 
 def test_diff_label_with_itself():

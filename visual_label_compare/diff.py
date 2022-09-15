@@ -78,10 +78,3 @@ def display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, m
 	plt.axis("off")
 	# show the images
 	plt.show()
-
-
-def apply_mask(image, mask):
-	result = image.copy()
-	result[mask == 0] = 0
-	result[mask != 0] = image[mask != 0]
-	return result
