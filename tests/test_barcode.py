@@ -1,13 +1,14 @@
 import cv2
 
+from tests.test_utils import image_file_path as img_path
 from visual_label_compare.image_util import apply_mask
 from pyzbar.pyzbar import decode
 
 
 def test_barcode():
     # GIVEN
-    label1a = cv2.imread("images/label1a.png")
-    mask = cv2.imread("images/label-mask.png", cv2.IMREAD_GRAYSCALE)
+    label1a = cv2.imread(img_path("label1a.png"))
+    mask = cv2.imread(img_path("label-mask.png"), cv2.IMREAD_GRAYSCALE)
     # get barcode area
     masked1a = apply_mask(label1a, mask, invert=True)
 
