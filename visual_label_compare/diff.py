@@ -80,5 +80,8 @@ def display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, m
 	plt.show()
 
 
-def load_image_grayscale(image_path: str):
-	return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+def apply_mask(image, mask):
+	result = image.copy()
+	result[mask == 0] = 0
+	result[mask != 0] = image[mask != 0]
+	return result
