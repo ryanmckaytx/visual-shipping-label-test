@@ -78,3 +78,7 @@ def display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, m
 	plt.axis("off")
 	# show the images
 	plt.show()
+
+
+def load_image_grayscale(image_path: str):
+	return cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
