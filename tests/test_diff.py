@@ -1,3 +1,5 @@
+import math
+
 import cv2
 
 from tests.test_utils import image_file_path as img_path
@@ -35,8 +37,7 @@ def test_diff_somewhat_similar_labels():
     label2 = cv2.imread(img_path("label2.png"))
 
     ssim = diff_images(label1a, "Label1a", label2, "Label2")
-    assert ssim >= 0.97
-    assert ssim < 0.98
+    assert math.isclose(ssim, 0.971, abs_tol=0.0002)
 
 
 def test_diff_somewhat_similar_labels_with_mask():
@@ -47,5 +48,5 @@ def test_diff_somewhat_similar_labels_with_mask():
     masked2 = apply_mask(label2, mask)
 
     ssim = diff_images(masked1a, "MaskedLabel1a", masked2, "MaskedLabel2")
-    assert ssim >= 0.97
-    assert ssim < 0.98
+    assert math.isclose(ssim, 0.977, abs_tol=0.0002)
+    
