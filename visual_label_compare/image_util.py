@@ -1,5 +1,5 @@
-def apply_mask(image, mask, invert=False):
+def apply_mask(image, mask):
 	result = image.copy()
-	result[(mask == 0) != invert] = 0
-	result[(mask != 0) != invert] = image[(mask != 0) != invert]
+	result[(mask == 0)] = 0
+	result[(mask != 0)] = image[(mask != 0)]
 	return result

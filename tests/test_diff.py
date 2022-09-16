@@ -36,7 +36,7 @@ def test_diff_somewhat_similar_labels():
 
     ssim = diff_images(label1a, "Label1a", label2, "Label2")
     assert ssim >= 0.97
-    assert ssim < 0.99
+    assert ssim < 0.98
 
 
 def test_diff_somewhat_similar_labels_with_mask():
@@ -47,5 +47,5 @@ def test_diff_somewhat_similar_labels_with_mask():
     masked2 = apply_mask(label2, mask)
 
     ssim = diff_images(masked1a, "MaskedLabel1a", masked2, "MaskedLabel2")
-    assert ssim >= 0.98
-    assert ssim < 0.99
+    assert ssim >= 0.97
+    assert ssim < 0.98

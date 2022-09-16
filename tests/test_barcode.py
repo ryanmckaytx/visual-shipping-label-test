@@ -9,9 +9,10 @@ import matplotlib.pyplot as plt
 def test_barcode():
     # GIVEN
     label1a = cv2.imread(img_path("label1a.png"))
-    mask = cv2.imread(img_path("label-mask.png"), cv2.IMREAD_GRAYSCALE)
+    # inverted mask
+    mask = cv2.bitwise_not(cv2.imread(img_path("label-mask.png"), cv2.IMREAD_GRAYSCALE))
     # get barcode area
-    masked1a = apply_mask(label1a, mask, invert=True)
+    masked1a = apply_mask(label1a, mask)
 
     # WHEN
     detected_barcodes = decode(masked1a)
