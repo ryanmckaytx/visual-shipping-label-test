@@ -16,6 +16,10 @@ So the verification is split into two parts:
 
 ## Examples
 These are all produced by running the tests
+### Given several similar labels
+![](../tests/images/label1a.png)
+![](../tests/images/label1b.png)
+![](../tests/images/label2.png)
 ### Comparing a label to itself
 ![](label1a-label1a.png)
 ### Comparing two very similar labels (only differ by timestamp and tracking #)
