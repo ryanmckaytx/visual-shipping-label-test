@@ -31,5 +31,5 @@ These are all produced by running the tests
 ### Comparing two less similar labels, masked
 ![](maskedlabel1a-maskedlabel2.png)
 ### Detecting barcode in reverse masked label
-![](detected-barcode)
+![](detected-barcode.png)
 
