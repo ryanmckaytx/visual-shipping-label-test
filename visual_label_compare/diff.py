@@ -32,7 +32,7 @@ def diff_images(imageA, imageATitle, imageB, imageBTitle):
 		cv2.rectangle(imageB, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 	display_diff(imageA, imageATitle, imageB, imageBTitle, diff, thresh, ssim, mse)
-	return ssim
+	return mse, ssim
 
 
 def compare_mse(imageA, imageB):
