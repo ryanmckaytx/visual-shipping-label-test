@@ -1,7 +1,10 @@
 # Visual Label Testing
 This is a project for Hippo Hack Days Sept. 14-16.  The goal is to visually verify correctness of a label image with CV.  
 
-## Installation Notes
+## Installation
+```shell
+poetry install
+```
 If not on Windows, zbar lib needs to be installed manually
 ```shell
 brew install zbar
@@ -11,4 +14,8 @@ then link it where python can find it
 ln -s $(brew --prefix zbar)/lib/libzbar.dylib /usr/local/lib/
 ```
 
+## Testing
+```shell
+poetry run python -m pytest
+```
 See description of approach and examples [here](doc/approach.md)
